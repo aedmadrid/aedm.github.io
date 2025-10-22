@@ -1,0 +1,877 @@
+/* CSS Compartido aso.app */
+/** Externos y animaciones **/
+
+@import url('/icons/material-symbols/index.css'); 
+@import url('/icons/material-symbols/outlined.css');
+
+@keyframes pulse {
+    0% {
+        transform: opacity(1);
+    }
+    50% {
+        transform: opacity(0.6);
+    }
+    100% {
+        transform: opacity(1);
+    }
+}
+
+@font-face {
+    font-family: P-Kiko;
+    src: url('/fonts/PKiko-Regular.otf') format('opentype');
+    font-style: normal;
+    font-weight:normal;
+};
+
+@font-face {
+    font-family: P-Kiko;
+    src: url('/fonts/PKiko-Light.otf') format('opentype');
+    font-style: normal;
+    font-weight:lighter;
+};
+
+@font-face {
+    font-family: P-Kiko;
+    src: url('/fonts/PKiko-RegularItalic.otf') format('opentype');
+    font-style: italic;
+    font-weight:normal;
+};
+
+@font-face {
+    font-family: P-Kiko;
+    src: url('/fonts/PKiko-LightItalic.otf') format('opentype');
+    font-style: italic;
+};
+
+@font-face {
+    font-family: DMMon;
+    src: url('/fonts/DMMono-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight:normal;
+};
+
+@font-face {
+    font-family: DMMono;
+    src: url('/fonts/DMMono-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight:normal;
+};
+
+@font-face {
+    font-family: DMMono;
+    src: url('/fonts/DMMono-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight:medium;
+};
+
+@font-face {
+    font-family: DMMono;
+    src: url('/fonts/DMMono-MediumItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight:medium;
+};
+
+@font-face {
+    font-family: DMMono;
+    src: url('/fonts/DMMono-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight:lighter;
+};
+
+
+@font-face {
+    font-family: NeueMontreal;
+    src: url('/fonts/NeueMontreal-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight:normal;
+};
+
+@font-face {
+    font-family: NeueMontreal;
+    src: url('/fonts/NeueMontreal-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight:normal;
+};
+
+@font-face {
+    font-family: NeueMontreal;
+    src: url('/fonts/NeueMontreal-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight:bold;
+};
+
+@font-face {
+    font-family: NeueMontreal;
+    src: url('/fonts/NeueMontreal-BoldItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight:bold;
+};
+
+@font-face {
+    font-family: NeueMontreal;
+    src: url('/fonts/NeueMontreal-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight:lighter;
+};
+
+@font-face {
+    font-family: NeueMontreal;
+    src: url('/fonts/NeueMontreal-LightItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight:lighter;
+};
+
+/** General **/
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
+    color: #040406;
+    -webkit-user-drag: none;
+    
+}
+
+
+body {
+    background-color: #ffffff;
+    touch-action: pan-x pan-y;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: all;
+    font-family: NeueMontreal, sans-serif;
+    margin: 0;
+}
+
+main{
+    display: flex;
+    justify-content: left;
+    width: calc(100% - 60px);
+    touch-action: pan-x pan-y;
+    margin: 30px;
+    flex-direction: column;
+    opacity: 0;
+    overflow-y: auto;
+}
+
+
+.app{
+    height: calc(100vh - 40px);
+    overflow-y: scroll;
+    touch-action: pan-x pan-y;
+
+    
+}
+#bCursor{  /* Cursor verde */
+    width: 50px;
+    height: 50px;
+    filter: blur(3px);
+    background-color: #36e452;
+    border-radius:60px;
+    transition: transform 150ms ease-in-out;
+    z-index: 999;
+    position: fixed;
+    pointer-events: none;
+    display: none;
+    top: -60px;
+
+    
+}
+
+/** Elementos **/
+
+a {
+    text-decoration: none;
+    color: #36e452;
+    transition: linear 0.1s;
+    text-decoration: underline;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    pointer-events: auto;
+
+}
+
+#aso-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #040406;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 40px;
+    box-shadow: 0px 0px 40px 0px #0000001e;
+
+    
+    
+    a {
+        text-decoration: none;
+        color: #FDFDFD;
+        padding: 10px;
+        text-transform: uppercase;
+        transition: linear 0.1s;
+        font-family: DMMono, monospace;
+    }
+    
+    a:hover {
+        color: #36e452;
+        transition: linear 0.1s;
+    }
+    
+    #n0 {
+        position: absolute;
+        left: 20px;
+    }
+    
+    #n1 {
+        position: relative;
+    }
+    
+    #n2 {
+        position: absolute;
+        right: 20px;
+    }
+}
+
+#head-bar {
+    top: 0;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #36e452;
+    
+    button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        background-color: #ffffff;
+        text-align: center;
+        color: #36e452;
+        width: 48px;
+        font-size: 1.5em;
+        transition: linear 0.1s;
+        font-family: DMMono, monospace;
+        z-index: 20;
+
+
+        *{
+            pointer-events: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+    }
+    
+    button:hover {
+        background-color: #36e452;
+        color: #FDFDFD;
+        transition: linear 0.1s;
+    };
+
+    
+    
+}
+
+
+h1{
+    font-family: P-Kiko, serif;
+    font-size: 2.8em;
+    color: #040406;
+    margin: 0;
+    margin-bottom: 40px;
+    padding: 0;
+    font-weight: normal;
+}
+
+h2{
+    font-family: DMMono, monospace;
+    font-weight: 100;
+    font-size: 1.6em;
+    color: #040406d3;
+    margin: 20 0 10 0px;
+    font-weight: normal;
+
+
+}
+
+h3{
+    font-family: NeueMontreal, sans-serif;
+    font-weight: 400;
+    font-size: 1.6em;
+    color: #040406;
+    margin: 20 0 10 0px;
+    font-weight: normal;
+    border-bottom: 2px solid #36e452;
+    a{
+        
+        text-decoration: none;
+        color: #040406;
+
+    }
+}
+
+hr{
+    border: 0;
+    height: 2px;
+    background: #36e452;
+    margin: 20px 0;
+    font-weight: normal;
+
+}
+
+
+#firmaPad{
+    cursor: crosshair;
+    height: 200px;
+    width: calc(100% - 2px) !important;
+    border: 1px solid #36e452;
+}
+
+h4{
+    font-family: DMMono, monospace;
+    font-size: 1.1em;
+    color: #040406;
+    margin: 20 0 10 0px;
+
+}
+
+button{
+    background-color: #36e452;
+    padding: 12px;
+    margin: 10px;
+    color: #040406;
+    border: 0;
+    width: 200px;
+    cursor: pointer;
+    font-family: NeueMontreal, sans-serif;
+    font-size: 14px;
+    transition: all 0.1s;
+    font-weight: 500;
+
+}
+
+button:disabled{
+    background-color: #36e452;
+    padding: 12px;
+    margin: 10px;
+    color: #040406;
+    border: 0;
+    width: 200px;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+input{
+    padding: 10px;
+    border: 1px solid #36e452;
+    background-color: #ffffff;
+    color: #040406;
+    font-family: DMMono, monospace;
+    font-size: 16px;
+    cursor: text;
+    outline: none;
+    transition: all 0.1s;
+    border-radius: 0;
+
+}
+
+input:focus{
+    border: 1px dashed #36e452;
+    transition: all 0.1s;
+}
+
+.hTitle{
+    padding-top:20px
+}
+
+label{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: DMMono, monospace;
+    white-space: normal;
+    overflow: visible;
+    width: 100%;
+    text-overflow: clip;
+    cursor: default;
+}
+
+
+form{
+    width: 100%;
+    cursor: default;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    padding: 10px;
+    border: 1px solid #36e452;
+    background-color: #ffffff;
+    color: #040406;
+    font-family: DMMono, monospace;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    transition: all 0.1s;
+    border-radius: 0;
+
+}
+textarea:focus{
+    border: 1px dashed #36e452;
+    transition: all 0.1s;
+}
+
+#aso-settings{
+
+    font-size: 1.2em;
+    color: #040406;
+    position:absolute;
+    top: 10px;
+    right: 20px;}
+
+/*** Específicos de Notion ***/
+
+
+
+.notionpic{
+    width: 100%;
+    max-width: 500px;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    object-fit: contain;
+    align-self: center;
+}
+
+.childpage{
+
+    text-decoration: none;
+    font-family: NeueMontreal, sans-serif;
+    font-size: 1.5em;
+    width: 100%;
+    text-align: left;
+    margin: 30 0px;
+    padding: 0;
+    background-color: #ffffff;
+    color: #040406;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #36e452;
+
+}
+
+
+/** Contenedores **/
+
+
+.notion-page{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: left;
+    align-items: left;
+    padding: 0px;
+    width: 100%; 
+    margin: 0 auto; 
+    padding-top: 70px;
+    padding-bottom: 20px;
+
+}
+
+#border{
+    padding: 60px 20px 10px 20px;
+}
+
+
+.notion-content{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: left;
+    align-items: left;
+    padding: 0px;
+    width: 100%; 
+    margin: 0 auto; 
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.esd-feed{
+    display: flex;
+    flex-direction: row;
+    overflow-y: visible;
+    overflow-x: scroll;
+    width: 100%;
+    margin: 0 auto;
+    gap: 20px;
+    min-height: calc(50vw - 40px)
+}
+
+
+
+.iosOnly{
+    display: none;
+}
+
+
+.col {
+    display: flex;
+    flex-direction: row; /* Por defecto, ajusta según necesites (row o column) */
+    gap: 20px; /* Espacio entre la columna de texto y la de imagen */
+    width: 100%;
+    align-items: flex-start; /* Alinea los items al inicio */
+}
+
+/* Reglas desanidadas para .col0 y .col1 */
+.col > .col0 { /* O puedes usar '.col .col0' */
+    flex: 2; /* La columna de texto ocupa más espacio */
+    display: flex;
+    flex-direction: column;
+}
+
+.col > .col1 { /* O puedes usar '.col .col1' */
+    flex: 1; /* La columna de imagen ocupa menos espacio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/** Clases **/
+
+    .actividad-image {
+    width: 100%;
+    max-width: 300px; /* Ajusta el tamaño máximo de la imagen */
+    height: auto;
+    object-fit: cover;
+    }
+    
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+
+
+.button-black{
+    background-color: #040406;
+    color: #FDFDFD;
+}
+
+.bigaso{
+    font-family: P-Kiko, serif;
+    color: #040406;
+    background-color: #36e452;
+    font-size: 1.5em;
+    width: 100%;
+    height: 68px;
+    text-align: left;
+    margin: 0;
+    padding: 18px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: left;
+    overflow: hidden;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    text-decoration: none !important;
+    
+    *{
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        text-decoration: none !important;
+
+    }
+
+
+
+    .material-symbols-outlined{
+        font-weight: 300;
+        
+    }
+}
+
+.bigaso.loading {
+    animation: pulse 1s infinite;
+    background-color: #ccc; /* Cambiar color mientras carga */
+    cursor: not-allowed;
+    pointer-events: none;
+    width: 100%;
+}
+
+
+
+
+
+.backstage{
+    background-color: #00000084;
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+
+}
+
+.popup{
+    position: fixed;
+    width: 85%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    z-index: 601;
+    padding: 20px;
+    .simg{
+        width: 80%;
+        max-height: 50vh;
+        object-fit: contain;
+        align-self: center;
+    };
+
+    div{
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        max-width: 100%;
+        align-items: center
+    
+    };
+
+
+}
+
+
+.boxinfo{
+    background-color: #36e452;
+    font-family: 'NeueMontreal', sans-serif;
+    font-size: 0,3em;
+    font-weight: 300;
+    text-align: left;
+    padding: 10px;
+    color: #040406;
+    margin-bottom: 20px;
+    *{
+        margin: 0;
+        color: #040406;
+    }
+
+
+}
+
+
+
+
+.outlined{
+    background-color: #ffffff;
+    border: 1px solid #36e452;
+    color: #36e452;
+}
+
+.bigPost{
+    display: flex;
+    flex-direction: column;
+    background-color: #040406;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 10px;
+    align-items: left;
+    text-align: left;
+    box-sizing: border-box;
+    gap: 10px;
+    *{
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        color: #36e452;
+        margin: 0;
+        padding: 0;
+    }
+
+    h4{
+        font-size: 2em;
+        font-family: P-Kiko, serif;
+        margin: 0;
+        padding: 0;
+        width: calc(100% - 12px);
+    }
+
+    
+
+    p{
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        color:#FDFDFD;
+        font-family: NeueMontreal, sans-serif;
+        font-size: 1.3em;
+        font-weight: 300;
+        width: calc(100% - 12px);
+
+
+
+    }
+}
+
+.squarePost{
+    font-family: P-Kiko, serif;
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    background-color: #36e452;
+    color: #040406;
+    width: calc(50vw - 40px); /* Teniendo cuenta el main y el gap */
+    height: calc(50vw - 40px); /* Teniendo cuenta el main y el gap */
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 10px;
+    align-items: left;
+    text-align: left;
+    box-sizing: border-box;
+    overflow: hidden;
+
+
+    p{
+        margin: 0;
+        text-decoration: none;
+        color:#FDFDFD
+
+    }
+}
+
+
+/* Adaptación a pantallas */
+
+@media screen and (min-width: 600px){
+
+    #bCursor{
+        display: block;
+    }
+
+
+    .popup{
+        width: 60%;
+    }
+
+    .bigaso{
+        width: 100%;
+        cursor: pointer;
+    }
+    .notion-content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .squarePost{
+        font-family: P-Kiko, serif;
+        display: flex;
+        flex-direction: column;
+        font-size: 1em;
+        background-color: #36e452;
+        color: #040406;
+        width: 260px; /* Teniendo cuenta el main y el gap */
+        height: 260px; /* Teniendo cuenta el main y el gap */
+        margin: 0;
+        margin-bottom: 10px;
+        padding: 10px;
+        align-items: left;
+        text-align: left;
+        box-sizing: border-box;
+        overflow: hidden;
+        
+    
+        p{
+            margin: 0;
+            text-decoration: none;
+            color:#FDFDFD
+    
+        }
+    }
+
+
+
+    .esd-feed{
+        width: 100%;
+        min-height: auto;
+        font-size: 2em;
+        
+
+    }
+
+}
+
+@media screen and (min-width: 800px){
+    .notion-content{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+    }
+
+    .notion-page{
+        max-width: 800px;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    #aso-bar {
+        height: 60px;
+        padding-bottom: 20px;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .iosOnly{
+        display: block;
+    }
+    #bCursor{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+  .col {
+    flex-direction: column-reverse; /* invierte el orden */
+    gap: 20px;
+  }
+  .col > .col0,
+  .col > .col1 {
+    width: 100%;
+    float: none;
+  }
+}

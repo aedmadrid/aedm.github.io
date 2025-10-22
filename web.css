@@ -1,0 +1,256 @@
+main{
+    opacity: 1;
+    
+}
+
+*{
+    cursor: auto;
+    -webkit-user-select:auto;
+    -moz-user-select:auto;
+    -ms-user-select:auto;
+    user-select:auto;
+    -webkit-touch-callout:auto;
+    
+}
+
+
+.aadm-item{
+    cursor: auto;
+}
+html, body{
+    cursor: auto;
+    background-color: rgb(253, 253, 253);
+}
+
+.hTitle{
+    padding-top: 0;
+    text-align: center;
+}
+a{
+    cursor: auto;
+}
+
+.logo{
+    background-image: url(/aedm.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 60px;
+    aspect-ratio: 16 / 9;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 20px;
+    align-items: flex-end;
+
+    a{
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        font-size: 16px;
+        transition: all 0.2s ease-in-out;
+    }
+    a:hover{
+        color: #36e452;
+    }
+
+    .material-symbols-outlined{
+        font-size: 16px; /* Mantén o ajusta según el tamaño del texto del enlace */
+        color: #000; /* Asegúrate de que el color del icono coincida con el texto del enlace si es necesario */
+        vertical-align: middle; /* Ayuda a alinear el icono con el texto */
+    }
+}
+
+header{
+    position-anchor: header;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* z-index existente */
+    background-color: rgba(253, 253, 253, 0.462);
+    margin: 0;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    width: calc(100% - 80px);
+}
+
+    .bhead{
+        background-color: #fdfdfd;
+        background-image: url('https://images2.imgbox.com/f6/71/mY1VAOY1_o.jpg');
+        width: 100%;
+        background-size: cover;
+        aspect-ratio: 1024/245;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid #e0e0e0;  }
+
+
+footer{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0px 20px;
+    align-items: baseline;
+    width: calc(100% - 40px);
+    font-family: NeueMontreal, sans-serif;
+    font-size: 1.2em;
+    background-color: #f2f2f2;
+    position: relative;
+    bottom: 0;
+
+    a{
+        color: #040406;
+        font-family: NeueMontreal, sans-serif;
+        transition: linear 0.1s;
+    }
+
+    #btmnav{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: end;
+        width: 100%;
+    }
+
+
+}
+
+button{
+    cursor: pointer;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    cursor:default;
+    align-items: center;
+
+    button{
+        width: 500px;
+    }
+}
+
+.hello{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 500px;
+}
+
+.bcontent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+
+#mobile-nav{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fdfdfd85;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    z-index: 999;;
+    transition:  opacity 0.4s ease;
+}
+
+#mobile-nav.open {
+    display: flex;
+    opacity: 1;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Más espacio para pantalla completa */
+    text-align: center;
+    transform: scale(0.8); 
+    transform: 0.5s ease;
+
+}
+
+
+.mobile-nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 22px; /* Tamaño de fuente más grande para móvil */
+    transition: all 0.2s ease-in-out;
+    display: flex; /* Para alinear icono y texto */
+    align-items: center; /* Para alinear icono y texto */
+    gap: 8px; /* Espacio entre texto e icono */
+}
+
+.mobile-nav-links a:hover {
+    color: #36e452;
+}
+
+.mobile-nav-links .material-symbols-outlined {
+    font-size: 22px; /* Coincide con el tamaño de fuente del enlace */
+    color: inherit; /* Hereda el color del enlace */
+}
+
+#menumob{
+    display: none;
+    transition: transform 0.3s ease;
+}
+
+#menumob.rotated {
+    transform: rotate(90deg);
+}
+
+
+
+
+@media screen and (max-width: 700px) {
+    header {
+        justify-content: space-between;
+    }
+
+    .bhead{
+        background-image: url('https://images2.imgbox.com/b0/7a/HAmadMSb_o.jpg');
+        aspect-ratio: 2437/1600;
+    }
+    .hello{
+        width: 100%;
+    }
+    #menumob{
+        display: block;
+    }
+    .desktop-nav {
+        display: none;
+    }
+    form{
+        button{
+            width: 100%;
+    }
+    }
+    
+    
+
+
+
+
+
+}
+
+
+
+
