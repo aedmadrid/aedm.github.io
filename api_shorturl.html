@@ -1,42 +1,43 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/aso.css" />
-    <link rel="stylesheet" href="/web.css" />
-    <title>ACORTADOR</title>
-  </head>
-  <body>
-    <main style="background-color: white">
-      <form>
-        <label for="longUrl">URL Original</label>
-        <input
-          type="url"
-          id="longUrl"
-          name="longUrl"
-          placeholder="https://ejemplo.com"
-          required
-        />
-        <button style="margin-left: -10px" onclick="apiURL()">
-          Acortar URL
-        </button>
-      </form>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/aso.css" />
+        <link rel="stylesheet" href="/web.css" />
+        <title>ACORTADOR</title>
+    </head>
+    <body>
+        <main style="background-color: white">
+            <label for="longUrl">URL Original</label>
+            <input
+                type="url"
+                id="longUrl"
+                name="longUrl"
+                placeholder="https://ejemplo.com"
+                required
+            />
+            <button style="margin-left: -10px" onclick="apiURL()">
+                Acortar URL
+            </button>
 
-      <p id="dinamic" onclick="copyURL()">
-        Para empezar, introduce una URL a acortar.
-      </p>
-    </main>
+            <p id="dinamic" onclick="copyURL()">
+                Para empezar, introduce una URL a acortar.
+            </p>
+        </main>
 
-    <script>
-      const rawUrl = document.getElementById("longUrl");
-      function apiURL() {
-        alert("no he implementado esto\nLucas :)");
-      }
+        <script>
+            const rawUrl = document.getElementById("longUrl");
+            const dinText = document.getElementById("dinamic");
 
-      function copyURL() {
-        console.log("HEY");
-      }
-    </script>
-  </body>
+            function apiURL() {
+                alert("No he implementado esto, Lucas.");
+                dinText.innerHTML = "No he implementado esto.<br>Lucas";
+            }
+
+            function copyURL() {
+                console.log("HEY, AÚN NO ESTÁ");
+            }
+        </script>
+    </body>
 </html>
