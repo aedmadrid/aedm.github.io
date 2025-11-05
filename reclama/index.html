@@ -1,123 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expone-Solicita | aedm</title>
-    <link rel="stylesheet" href="/aso.css">
-    <link rel="stylesheet" href="/web.css">
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Expone-Solicita | aedm</title>
+        <link rel="stylesheet" href="/aso.css" />
+        <link rel="stylesheet" href="/web.css" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+    </head>
 
-<body>
-    <header>
-        <div class="logo" onclick="location.href='/'"></div>
-        <nav class="desktop-nav">
-            <a href="/">Inicio</a>
-            <a href="/reclama/">Expone-Solicita</a>
-            <a href="https://aadm.space/actividades">Actividades</a>
-            <a target="_blank" href="https://app.aadm.space/">APP <span class="material-symbols-outlined"> arrow_outward </span></a>
-            <a href="/contacto">Contacto</a>
-            <a href="https://aadm.space/mas">Más <span class="material-symbols-outlined">add</span></a>
-        </nav>
-        <span id="menumob" class="material-symbols-outlined">menu</span>
-    </header>
+    <body>
+        <header>
+            <div class="logo" onclick="location.href='/'"></div>
+            <nav class="desktop-nav">
+                <a href="/">Inicio</a>
+                <a href="/reclama/">Expone-Solicita</a>
+                <a href="https://aadm.space/actividades">Actividades</a>
+                <a target="_blank" href="https://app.aadm.space/"
+                    >APP
+                    <span class="material-symbols-outlined">
+                        arrow_outward
+                    </span></a
+                >
+                <a href="/contacto">Contacto</a>
+                <a href="https://aadm.space/mas"
+                    >Más <span class="material-symbols-outlined">add</span></a
+                >
+            </nav>
+            <span id="menumob" class="material-symbols-outlined">menu</span>
+        </header>
 
-    <div id="mobile-nav">
-        <nav class="mobile-nav-links">
-            <a href="/">Inicio</a>
-            <a href="/reclama/">Expone-Solicita</a>
-            <a href="https://aadm.space/actividades">Actividades</a>
-            <a target="_blank" href="https://app.aadm.space/">APP <span class="material-symbols-outlined"> arrow_outward </span></a>
-            <a href="/contacto">Contacto</a>
-            <a href="https://aadm.space/mas">Más <span class="material-symbols-outlined">add</span></a>
-        </nav>
-    </div>
-
-    <main>
-        <div class="notion-page">
-            <h1 class="hTitle">Expone / Solicita</h1>
-                    <div class="boxinfo">
-            <p>
-                El formulario de Expone-Solicita de la escuela hecho fácil. <br>
-                En la (aso) queremos ayudarte con los trámites burocráticos, puedes rellenar aquí tu Expone-Solicita. <br>
-                Si lo prefieres, puedes <a target="_blank" href="https://admin-dev.esdmadrid.es/wp-content/uploads/2020/04/FORMULARIO-EXPONE_SOLICITA_EDITABLE.pdf">descargar el formulario en PDF</a> y entregarlo en la secretaría del centro, o por mail.
-            </p>
+        <div id="mobile-nav">
+            <nav class="mobile-nav-links">
+                <a href="/">Inicio</a>
+                <a href="/reclama/">Expone-Solicita</a>
+                <a href="https://aadm.space/actividades">Actividades</a>
+                <a target="_blank" href="https://app.aadm.space/"
+                    >APP
+                    <span class="material-symbols-outlined">
+                        arrow_outward
+                    </span></a
+                >
+                <a href="/contacto">Contacto</a>
+                <a href="https://aadm.space/mas"
+                    >Más <span class="material-symbols-outlined">add</span></a
+                >
+            </nav>
         </div>
-        <div class="hChips"><p class="hoTitle">Plantillas:</p><a class="chip" href="?expone=La conexión WiFi de la escuela no llega a todas las aulas, lo que hace imposible acceder a Internet. Esto retrasa y dificulta la entrega de proyectos, ya que es una herramienta fundamental a la hora de trabajar con el ordenador.&solicita=Este problema debería solucionarse cuanto antes, ya sea instalando repetidores u otra medida similar. No puede seguir así, somos una escuela de diseño y trabajamos con ordenadores todos los días.">Wifi</a></div>
-        <form id="reclamacionesForm">
-            <label for="Nombre">Nombre*</label>
-            <input type="text" name="Nombre" id="Nombre">
-            <label for="Apellidos">Apellidos*</label>
-            <input type="text" name="Apellidos" id="Apellidos">
-            <label for="NIF">NIF*</label>
-            <input type="text" name="NIF" id="NIF">
-            <label for="ESP">Especialidad/curso/grupo*</label>
-            <input type="text" name="ESP" id="ESP">
-            <label for="mail">Correo electrónico*</label>
-            <input type="email" name="mail" id="mail">
-            <label for="tel">Teléfono*</label>
-            <input type="tel" name="tel" id="tel">
-            <label for="expone">Expone*</label>
-            <textarea name="expone" id="expone" rows="10"  maxlength="900"></textarea>
-            <label for="solicita">Solicita*</label>
-            <textarea name="solicita" id="solicita" rows="10" maxlength="900"></textarea>
-            <label for="documentos">Documentación Adjunta</label>
-            <textarea name="documentos" id="documentos" rows="5" maxlength="350" placeholder="Enlaces, recursos..."></textarea>
-            <label for="fecha">Fecha*</label>
-            <input type="date" name="fecha" id="fecha">
-            <label for="firmaPad">Firma (dibujar abajo)*</label>
-            <canvas id="firmaPad"></canvas>
-            <button type="button" class="outlined" id="clearSignature"  style="align-self: center;">Repetir firma</button>
 
-            <h3>Enviar a la escuela</h3>
-            <p>Descarga el pdf generado y envíalo a <a href="mailto:administracion@esdmadrid.es">administracion@esdmadrid.es</a> o entregalo en la secretaría del centro.</p>
-            <button type="submit" class="bigaso">
-            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                   Generar PDF <span class="material-symbols-outlined"> arrow_forward </span> 
+        <main>
+            <div class="notion-page">
+                <h1 class="hTitle">Expone / Solicita</h1>
+                <div class="boxinfo">
+                    <p>
+                        El formulario de Expone-Solicita de la escuela hecho
+                        fácil. <br />
+                        En la (aso) queremos ayudarte con los trámites
+                        burocráticos, puedes rellenar aquí tu Expone-Solicita.
+                        <br />
+                        Si lo prefieres, puedes
+                        <a
+                            target="_blank"
+                            href="https://admin-dev.esdmadrid.es/wp-content/uploads/2020/04/FORMULARIO-EXPONE_SOLICITA_EDITABLE.pdf"
+                            >descargar el formulario en PDF</a
+                        >
+                        y entregarlo en la secretaría del centro, o por mail.
+                    </p>
+                </div>
+                <div class="hChips">
+                    <p class="hoTitle">Plantillas:</p>
+                    <a
+                        class="chip"
+                        href="?expone=La conexión WiFi de la escuela no llega a todas las aulas, lo que hace imposible acceder a Internet. Esto retrasa y dificulta la entrega de proyectos, ya que es una herramienta fundamental a la hora de trabajar con el ordenador.&solicita=Este problema debería solucionarse cuanto antes, ya sea instalando repetidores u otra medida similar. No puede seguir así, somos una escuela de diseño y trabajamos con ordenadores todos los días."
+                        >Wifi</a
+                    >
+                </div>
+                <form id="reclamacionesForm">
+                    <label for="Nombre">Nombre*</label>
+                    <input type="text" name="Nombre" id="Nombre" />
+                    <label for="Apellidos">Apellidos*</label>
+                    <input type="text" name="Apellidos" id="Apellidos" />
+                    <label for="NIF">NIF*</label>
+                    <input type="text" name="NIF" id="NIF" />
+                    <label for="ESP">Especialidad/curso/grupo*</label>
+                    <input type="text" name="ESP" id="ESP" />
+                    <label for="mail">Correo electrónico*</label>
+                    <input type="email" name="mail" id="mail" />
+                    <label for="tel">Teléfono*</label>
+                    <input type="tel" name="tel" id="tel" />
+                    <label for="expone">Expone*</label>
+                    <textarea
+                        name="expone"
+                        id="expone"
+                        rows="10"
+                        maxlength="900"
+                    ></textarea>
+                    <label for="solicita">Solicita*</label>
+                    <textarea
+                        name="solicita"
+                        id="solicita"
+                        rows="10"
+                        maxlength="900"
+                    ></textarea>
+                    <label for="documentos">Documentación Adjunta</label>
+                    <textarea
+                        name="documentos"
+                        id="documentos"
+                        rows="5"
+                        maxlength="350"
+                        placeholder="Enlaces, recursos..."
+                    ></textarea>
+                    <label for="fecha">Fecha*</label>
+                    <input type="date" name="fecha" id="fecha" />
+                    <label for="firmaPad">Firma (dibujar abajo)*</label>
+                    <canvas id="firmaPad"></canvas>
+                    <button
+                        type="button"
+                        class="outlined"
+                        id="clearSignature"
+                        style="align-self: center"
+                    >
+                        Repetir firma
+                    </button>
+
+                    <h3>Enviar a la escuela</h3>
+                    <p>
+                        Descarga el pdf generado y envíalo a
+                        <a href="mailto:administracion@esdmadrid.es"
+                            >administracion@esdmadrid.es</a
+                        >
+                        o entregalo en la secretaría del centro.
+                    </p>
+                    <button type="submit" class="bigaso">
+                        <div
+                            style="
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                width: 100%;
+                            "
+                        >
+                            Generar PDF
+                            <span class="material-symbols-outlined">
+                                arrow_forward
+                            </span>
+                        </div>
+                    </button>
+                </form>
             </div>
-            </button>
+        </main>
 
-        </form>
+        <div id="notification-container"></div>
 
-    </div>
-    </main>
+        <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+        <script
+            type="text/javascript"
+            src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js"
+            charset="UTF-8"
+        ></script>
+        <script type="text/javascript" charset="UTF-8">
+            document.addEventListener("DOMContentLoaded", function () {
+                cookieconsent.run({
+                    notice_banner_type: "simple",
+                    consent_type: "express",
+                    palette: "dark",
+                    language: "es",
+                    page_load_consent_levels: ["strictly-necessary"],
+                    notice_banner_reject_button_hide: false,
+                    preferences_center_close_button_hide: false,
+                    page_refresh_confirmation_buttons: false,
+                    website_name: "aadm",
+                });
+            });
+        </script>
 
-    <div id="notification-container"></div>
+        <!-- Unnamed script -->
+        <!-- Google tag (gtag.js) -->
+        <script
+            type="text/plain"
+            data-cookie-consent="strictly-necessary"
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4BDXW4TRWE"
+        ></script>
+        <script type="text/plain" data-cookie-consent="strictly-necessary">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-    <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
-<script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8"></script>
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"dark","language":"es","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"aadm"});
-});
-</script>
+            gtag('config', 'G-4BDXW4TRWE');
+        </script>
+        <!-- end of Unnamed script-->
 
-<!-- Unnamed script -->
-<!-- Google tag (gtag.js) -->
-<script type="text/plain" data-cookie-consent="strictly-necessary" async src="https://www.googletagmanager.com/gtag/js?id=G-4BDXW4TRWE"></script>
-<script type="text/plain" data-cookie-consent="strictly-necessary">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <noscript
+            >Free cookie consent management tool by
+            <a href="https://www.termsfeed.com/">TermsFeed</a></noscript
+        >
+        <!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
 
-  gtag('config', 'G-4BDXW4TRWE');
-</script>
-<!-- end of Unnamed script-->
+        <!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
 
-<noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/">TermsFeed</a></noscript>
-<!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
-
-
-
-
-
-<!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
-
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2d1749e9274afb9f1344756c07894d","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-</body>
-<script src="https://aadm.space/mobile.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
-<script src="form.js"></script>
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+            integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+            data-cf-beacon='{"version":"2024.11.0","token":"9e2d1749e9274afb9f1344756c07894d","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+            crossorigin="anonymous"
+        ></script>
+    </body>
+    <script src="https://aadm.space/mobile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="form.js"></script>
 </html>
