@@ -25,6 +25,7 @@
                 href="https://aadm.space/id/1a676f0f-98e2-80fc-944d-cfa475366241"
                 style="text-decoration: none"
                 class="aadm-item"
+                target="_blank"
                 ><button class="bigaso">
                     <span class="material-symbols-outlined"> wysiwyg </span>
                     Software Alumnos
@@ -33,6 +34,7 @@
             <a
                 href="https://aedm.org.es/asocia/"
                 style="text-decoration: none"
+                target="_blank"
                 class="aadm-item"
                 ><button class="bigaso">
                     <span class="material-symbols-outlined"> groups </span>
@@ -53,6 +55,7 @@
                 href="https://aadm.space/id/28176f0f-98e2-803a-83b4-c0c203536caa"
                 style="text-decoration: none"
                 class="aadm-item"
+                target="_blank"
                 ><button class="bigaso">
                     <span class="material-symbols-outlined">
                         breakfast_dining
@@ -74,4 +77,18 @@
     </body>
     <script src="https://aadm.space/formula.js"></script>
     <script src="https://aadm.space/mobile.js"></script>
+    <script>
+        function sendHeight() {
+            const height =
+                document.documentElement.scrollHeight ||
+                document.body.scrollHeight;
+            window.parent.postMessage({ height: height }, "*"); // O usar el origen exacto de la página padre si se conoce
+        }
+
+        // Llamar al cargar y cuando cambie el contenido dinámicamente
+        window.onload = sendHeight;
+        window.onresize = sendHeight;
+
+        // Si el contenido cambia dinámicamente, se debe llamar sendHeight() después de esos cambios también
+    </script>
 </html>
