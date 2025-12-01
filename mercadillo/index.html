@@ -66,11 +66,22 @@
                 >
                     Vuelve el Mercadillo de Navidad de la ESD Madrid.
                 </p>
-                <h3>Información</h3>
-                <i style="color: gray"
-                    >Vendedores, lo vuestro está
-                    <a href="#vende" style="color: gray">abajo</a>.</i
-                >
+                <br />
+
+                <div class="linea">
+                    <h1 onclick="window.location.href='#info'">Información</h1>
+                    <h1 onclick="window.location.href='#qsv'">
+                        ¿Qué se vende?
+                    </h1>
+                    <h1 onclick="window.location.href='#despues'">Después</h1>
+                    <h1 onclick="window.location.href='#newsteller'">
+                        Newsteller
+                    </h1>
+                    <h1 onclick="window.location.href='#vende'">Vender</h1>
+                    <h1 onclick="window.location.href='#carteles'">Carteles</h1>
+                </div>
+                <h3 id="info">Información</h3>
+
                 <p>
                     ¡Hola! Presentamos la segunda edición (desde que la organiza
                     la ASO) del Mercadillo de Navidad de la ESD, donde se ponen
@@ -97,7 +108,7 @@
                 </p>
                 <p>
                     Añade el mercadillo a tu calendario. Es el 12 de diciembre
-                    en la Escuela Superior de Diseño de Madrid.
+                    en la Escuela Superior de Diseño de Madrid. De 10 a 20h.
                 </p>
                 <button
                     class="bigaso"
@@ -109,7 +120,75 @@
                         >calendar_add_on</span
                     >
                 </button>
-                <h3>Apúntate al newsteller de la ASO</h3>
+                <h3 id="qsv">¿Qué se vende?</h3>
+                <p>
+                    Esto es lo que los vendedores nos han comunicado que venden.
+                </p>
+
+                <div class="hashtag-scroll">
+                    <div class="hashtag-row hashtag-row-1">
+                        <span>#pegatinas</span>
+                        <span>#llaveros</span>
+                        <span>#prints</span>
+                        <span>#fanzine</span>
+                        <span>#ilustración</span>
+                        <span>#joyas</span>
+                        <span>#albumilustrado</span>
+                        <span>#crochet</span>
+                        <span>#cuadernos</span>
+                        <span>#grabados</span>
+                        <span>#marcapáginas</span>
+                        <span>#pendientes</span>
+                        <span>#ropa</span>
+                        <span>#accesorio</span>
+                        <span>#aluminio</span>
+                        <span>#amigurumis</span>
+                    </div>
+                    <div class="hashtag-row hashtag-row-2">
+                        <span>#artesanal</span>
+                        <span>#artesanía</span>
+                        <span>#bisutería</span>
+                        <span>#bolsos</span>
+                        <span>#bookmark</span>
+                        <span>#camisetasconlejía</span>
+                        <span>#camisetaspersonalizadas</span>
+                        <span>#carteles</span>
+                        <span>#chapas</span>
+                        <span>#collares</span>
+                        <span>#color</span>
+                        <span>#decoloración</span>
+                        <span>#diy</span>
+                        <span>#encuadernación</span>
+                        <span>#fanart</span>
+                        <span>#fotografia</span>
+                    </div>
+                    <div class="hashtag-row hashtag-row-3">
+                        <span>#furby</span>
+                        <span>#handmade</span>
+                        <span>#ilustraciones</span>
+                        <span>#imanes</span>
+                        <span>#joyasaluminio</span>
+                        <span>#joyería</span>
+                        <span>#joyeríaenplata</span>
+                        <span>#láminas</span>
+                        <span>#madera</span>
+                        <span>#papelería</span>
+                        <span>#peluches</span>
+                        <span>#postales</span>
+                        <span>#posters</span>
+                        <span>#prendas</span>
+                        <span>#sorpresa</span>
+                        <span>#stickers</span>
+                    </div>
+                </div>
+
+                <h3 id="despues">Después</h3>
+                <p>
+                    El mercadillo no acaba a las 20h. Continua con un evento de
+                    networking con DJ. ¡No te lo pierdas!
+                </p>
+
+                <h3 id="newsteller">Apúntate al newsteller de la ASO</h3>
                 <p>No te pierdas nada de lo que pasa en la escuela.</p>
 
                 <button
@@ -131,6 +210,7 @@
                 <p>
                     <b style="color: chocolate">AVISO:</b> La inscripción al
                     formulario cierra el 28 de noviembre.
+                    <i>(Bueno, lo hemos dejado abierto de momento) </i>
                 </p>
                 <br />
                 <button
@@ -140,6 +220,19 @@
                 >
                     Vender en el Mercadillo 2025
                     <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+                <h3 id="carteles">Carteles</h3>
+                <p>
+                    Nos harías un gran favor si compartieras el cartel del
+                    mercadillo. Te lo adjuntamos.
+                </p>
+                <button
+                    class="bigaso"
+                    onclick="window.location.href='https://aedm.notion.site/Carteles-Mercadillo-2bc76f0f98e28051aee4e593b390416a?source=copy_link'"
+                    style="justify-content: space-between"
+                >
+                    Descargar carteles
+                    <span class="material-symbols-outlined">file_download</span>
                 </button>
             </div>
         </main>
@@ -219,4 +312,14 @@
     </body>
     <script src="https://aadm.space/formula.js"></script>
     <script src="https://aadm.space/mobile.js"></script>
+    <script>
+        // Duplicar hashtags para scroll infinito
+        document.addEventListener("DOMContentLoaded", function () {
+            const rows = document.querySelectorAll(".hashtag-row");
+            rows.forEach((row) => {
+                const content = row.innerHTML;
+                row.innerHTML = content + content;
+            });
+        });
+    </script>
 </html>
