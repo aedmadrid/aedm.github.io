@@ -1,8 +1,8 @@
 /* CSS Compartido aso.app */
 /** Externos y animaciones **/
 
-@import url('/icons/material-symbols/index.css'); 
-@import url('/icons/material-symbols/outlined.css');
+@import url("/icons/material-symbols/index.css");
+@import url("/icons/material-symbols/outlined.css");
 
 @keyframes pulse {
     0% {
@@ -18,108 +18,107 @@
 
 @font-face {
     font-family: P-Kiko;
-    src: url('/fonts/PKiko-Regular.otf') format('opentype');
+    src: url("/fonts/PKiko-Regular.otf") format("opentype");
     font-style: normal;
-    font-weight:normal;
-};
+    font-weight: normal;
+}
 
 @font-face {
     font-family: P-Kiko;
-    src: url('/fonts/PKiko-Light.otf') format('opentype');
+    src: url("/fonts/PKiko-Light.otf") format("opentype");
     font-style: normal;
-    font-weight:lighter;
-};
+    font-weight: lighter;
+}
 
 @font-face {
     font-family: P-Kiko;
-    src: url('/fonts/PKiko-RegularItalic.otf') format('opentype');
+    src: url("/fonts/PKiko-RegularItalic.otf") format("opentype");
     font-style: italic;
-    font-weight:normal;
-};
+    font-weight: normal;
+}
 
 @font-face {
     font-family: P-Kiko;
-    src: url('/fonts/PKiko-LightItalic.otf') format('opentype');
+    src: url("/fonts/PKiko-LightItalic.otf") format("opentype");
     font-style: italic;
-};
+}
 
 @font-face {
     font-family: DMMon;
-    src: url('/fonts/DMMono-Regular.ttf') format('truetype');
+    src: url("/fonts/DMMono-Regular.ttf") format("truetype");
     font-style: normal;
-    font-weight:normal;
-};
+    font-weight: normal;
+}
 
 @font-face {
     font-family: DMMono;
-    src: url('/fonts/DMMono-Italic.ttf') format('truetype');
+    src: url("/fonts/DMMono-Italic.ttf") format("truetype");
     font-style: italic;
-    font-weight:normal;
-};
+    font-weight: normal;
+}
 
 @font-face {
     font-family: DMMono;
-    src: url('/fonts/DMMono-Medium.ttf') format('truetype');
+    src: url("/fonts/DMMono-Medium.ttf") format("truetype");
     font-style: normal;
-    font-weight:medium;
-};
+    font-weight: medium;
+}
 
 @font-face {
     font-family: DMMono;
-    src: url('/fonts/DMMono-MediumItalic.ttf') format('truetype');
+    src: url("/fonts/DMMono-MediumItalic.ttf") format("truetype");
     font-style: italic;
-    font-weight:medium;
-};
+    font-weight: medium;
+}
 
 @font-face {
     font-family: DMMono;
-    src: url('/fonts/DMMono-Light.ttf') format('truetype');
+    src: url("/fonts/DMMono-Light.ttf") format("truetype");
     font-style: normal;
-    font-weight:lighter;
-};
-
+    font-weight: lighter;
+}
 
 @font-face {
     font-family: NeueMontreal;
-    src: url('/fonts/NeueMontreal-Regular.ttf') format('truetype');
+    src: url("/fonts/NeueMontreal-Regular.ttf") format("truetype");
     font-style: normal;
-    font-weight:normal;
-};
+    font-weight: normal;
+}
 
 @font-face {
     font-family: NeueMontreal;
-    src: url('/fonts/NeueMontreal-Italic.ttf') format('truetype');
+    src: url("/fonts/NeueMontreal-Italic.ttf") format("truetype");
     font-style: italic;
-    font-weight:normal;
-};
+    font-weight: normal;
+}
 
 @font-face {
     font-family: NeueMontreal;
-    src: url('/fonts/NeueMontreal-Bold.ttf') format('truetype');
+    src: url("/fonts/NeueMontreal-Bold.ttf") format("truetype");
     font-style: normal;
-    font-weight:bold;
-};
+    font-weight: bold;
+}
 
 @font-face {
     font-family: NeueMontreal;
-    src: url('/fonts/NeueMontreal-BoldItalic.ttf') format('truetype');
+    src: url("/fonts/NeueMontreal-BoldItalic.ttf") format("truetype");
     font-style: italic;
-    font-weight:bold;
-};
+    font-weight: bold;
+}
 
 @font-face {
     font-family: NeueMontreal;
-    src: url('/fonts/NeueMontreal-Light.ttf') format('truetype');
+    src: url("/fonts/NeueMontreal-Light.ttf") format("truetype");
     font-style: normal;
-    font-weight:lighter;
-};
+    font-weight: lighter;
+}
 
 @font-face {
     font-family: NeueMontreal;
-    src: url('/fonts/NeueMontreal-LightItalic.ttf') format('truetype');
+    src: url("/fonts/NeueMontreal-LightItalic.ttf") format("truetype");
     font-style: italic;
-    font-weight:lighter;
-};
+    font-weight: lighter;
+}
 
 /** General **/
 
@@ -131,9 +130,7 @@
     font-size: 16px;
     color: #040406;
     -webkit-user-drag: none;
-    
 }
-
 
 body {
     background-color: #ffffff;
@@ -148,7 +145,7 @@ body {
     margin: 0;
 }
 
-main{
+main {
     display: flex;
     justify-content: left;
     width: calc(100% - 60px);
@@ -159,28 +156,24 @@ main{
     overflow-y: auto;
 }
 
-
-.app{
+.app {
     height: calc(100vh - 40px);
     overflow-y: scroll;
     touch-action: pan-x pan-y;
-
-    
 }
-#bCursor{  /* Cursor verde */
+#bCursor {
+    /* Cursor verde */
     width: 50px;
     height: 50px;
     filter: blur(3px);
     background-color: #36e452;
-    border-radius:60px;
+    border-radius: 60px;
     transition: transform 150ms ease-in-out;
     z-index: 999;
     position: fixed;
     pointer-events: none;
     display: none;
     top: -60px;
-
-    
 }
 
 /** Elementos **/
@@ -195,7 +188,6 @@ a {
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
     pointer-events: auto;
-
 }
 
 #aso-bar {
@@ -212,31 +204,29 @@ a {
     height: 40px;
     box-shadow: 0px 0px 40px 0px #0000001e;
 
-    
-    
     a {
         text-decoration: none;
-        color: #FDFDFD;
+        color: #fdfdfd;
         padding: 10px;
         text-transform: uppercase;
         transition: linear 0.1s;
         font-family: DMMono, monospace;
     }
-    
+
     a:hover {
         color: #36e452;
         transition: linear 0.1s;
     }
-    
+
     #n0 {
         position: absolute;
         left: 20px;
     }
-    
+
     #n1 {
         position: relative;
     }
-    
+
     #n2 {
         position: absolute;
         right: 20px;
@@ -255,8 +245,8 @@ a {
     padding: 0;
     box-sizing: border-box;
     border-bottom: 1px solid #36e452;
-    
-    button{
+
+    button {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -270,27 +260,21 @@ a {
         font-family: DMMono, monospace;
         z-index: 20;
 
-
-        *{
+        * {
             pointer-events: none;
             margin: 0;
             padding: 0;
         }
-        
     }
-    
+
     button:hover {
         background-color: #36e452;
-        color: #FDFDFD;
+        color: #fdfdfd;
         transition: linear 0.1s;
-    };
-
-    
-    
+    }
 }
 
-
-h1{
+h1 {
     font-family: P-Kiko, serif;
     font-size: 2.8em;
     color: #040406;
@@ -300,18 +284,16 @@ h1{
     font-weight: normal;
 }
 
-h2{
+h2 {
     font-family: DMMono, monospace;
     font-weight: 100;
     font-size: 1.6em;
     color: #040406d3;
     margin: 20 0 10 0px;
     font-weight: normal;
-
-
 }
 
-h3{
+h3 {
     font-family: NeueMontreal, sans-serif;
     font-weight: 400;
     font-size: 1.6em;
@@ -319,40 +301,35 @@ h3{
     margin: 20 0 10 0px;
     font-weight: normal;
     border-bottom: 2px solid #36e452;
-    a{
-        
+    a {
         text-decoration: none;
         color: #040406;
-
     }
 }
 
-hr{
+hr {
     border: 0;
     height: 2px;
     background: #36e452;
     margin: 20px 0;
     font-weight: normal;
-
 }
 
-
-#firmaPad{
+#firmaPad {
     cursor: crosshair;
     height: 200px;
     width: calc(100% - 2px) !important;
     border: 1px solid #36e452;
 }
 
-h4{
+h4 {
     font-family: DMMono, monospace;
     font-size: 1.1em;
     color: #040406;
     margin: 20 0 10 0px;
-
 }
 
-button{
+button {
     background-color: #36e452;
     padding: 12px;
     margin: 10px;
@@ -364,10 +341,9 @@ button{
     font-size: 14px;
     transition: all 0.1s;
     font-weight: 500;
-
 }
 
-button:disabled{
+button:disabled {
     background-color: #36e452;
     padding: 12px;
     margin: 10px;
@@ -378,7 +354,7 @@ button:disabled{
     opacity: 0.5;
 }
 
-input{
+input {
     padding: 10px;
     border: 1px solid #36e452;
     background-color: #ffffff;
@@ -389,19 +365,18 @@ input{
     outline: none;
     transition: all 0.1s;
     border-radius: 0;
-
 }
 
-input:focus{
+input:focus {
     border: 1px dashed #36e452;
     transition: all 0.1s;
 }
 
-.hTitle{
-    padding-top:20px
+.hTitle {
+    padding-top: 20px;
 }
 
-label{
+label {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -413,8 +388,7 @@ label{
     cursor: default;
 }
 
-
-form{
+form {
     width: 100%;
     cursor: default;
     gap: 10px;
@@ -422,7 +396,7 @@ form{
     flex-direction: column;
 }
 
-textarea{
+textarea {
     padding: 10px;
     border: 1px solid #36e452;
     background-color: #ffffff;
@@ -433,26 +407,23 @@ textarea{
     outline: none;
     transition: all 0.1s;
     border-radius: 0;
-
 }
-textarea:focus{
+textarea:focus {
     border: 1px dashed #36e452;
     transition: all 0.1s;
 }
 
-#aso-settings{
-
+#aso-settings {
     font-size: 1.2em;
     color: #040406;
-    position:absolute;
+    position: absolute;
     top: 10px;
-    right: 20px;}
+    right: 20px;
+}
 
 /*** Específicos de Notion ***/
 
-
-
-.notionpic{
+.notionpic {
     width: 100%;
     max-width: 500px;
     margin: 10px;
@@ -462,8 +433,7 @@ textarea:focus{
     align-self: center;
 }
 
-.childpage{
-
+.childpage {
     text-decoration: none;
     font-family: NeueMontreal, sans-serif;
     font-size: 1.5em;
@@ -476,46 +446,41 @@ textarea:focus{
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #36e452;
-
 }
-
 
 /** Contenedores **/
 
-
-.notion-page{
+.notion-page {
     display: flex;
     flex-direction: column;
     align-self: center;
     justify-content: left;
     align-items: left;
     padding: 0px;
-    width: 100%; 
-    margin: 0 auto; 
+    width: 100%;
+    margin: 0 auto;
     padding-top: 70px;
     padding-bottom: 20px;
-
 }
 
-#border{
+#border {
     padding: 60px 20px 10px 20px;
 }
 
-
-.notion-content{
+.notion-content {
     display: flex;
     flex-direction: column;
     align-self: center;
     justify-content: left;
     align-items: left;
     padding: 0px;
-    width: 100%; 
-    margin: 0 auto; 
+    width: 100%;
+    margin: 0 auto;
     gap: 20px;
     margin-bottom: 20px;
 }
 
-.esd-feed{
+.esd-feed {
     display: flex;
     flex-direction: row;
     overflow-y: visible;
@@ -523,15 +488,12 @@ textarea:focus{
     width: 100%;
     margin: 0 auto;
     gap: 20px;
-    min-height: calc(50vw - 40px)
+    min-height: calc(50vw - 40px);
 }
 
-
-
-.iosOnly{
+.iosOnly {
     display: none;
 }
-
 
 .col {
     display: flex;
@@ -542,30 +504,31 @@ textarea:focus{
 }
 
 /* Reglas desanidadas para .col0 y .col1 */
-.col > .col0 { /* O puedes usar '.col .col0' */
+.col > .col0 {
+    /* O puedes usar '.col .col0' */
     flex: 2; /* La columna de texto ocupa más espacio */
     display: flex;
     flex-direction: column;
 }
 
-.col > .col1 { /* O puedes usar '.col .col1' */
+.col > .col1 {
+    /* O puedes usar '.col .col1' */
     flex: 1; /* La columna de imagen ocupa menos espacio */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
 /** Clases **/
 
-    .actividad-image {
+.actividad-image {
     width: 100%;
     max-width: 300px; /* Ajusta el tamaño máximo de la imagen */
     height: auto;
     object-fit: cover;
-    }
-    
-.center{
+}
+
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -574,13 +537,12 @@ textarea:focus{
     flex-direction: column;
 }
 
-
-.button-black{
+.button-black {
     background-color: #040406;
-    color: #FDFDFD;
+    color: #fdfdfd;
 }
 
-.bigaso{
+.bigaso {
     font-family: P-Kiko, serif;
     color: #040406;
     background-color: #36e452;
@@ -597,24 +559,20 @@ textarea:focus{
     align-items: center;
     justify-content: left;
     overflow: hidden;
-    white-space: nowrap; 
-    overflow: hidden; 
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none !important;
-    
-    *{
-        white-space: nowrap; 
-        overflow: hidden; 
+
+    * {
+        white-space: nowrap;
+        overflow: hidden;
         text-overflow: ellipsis;
         text-decoration: none !important;
-
     }
 
-
-
-    .material-symbols-outlined{
+    .material-symbols-outlined {
         font-weight: 300;
-        
     }
 }
 
@@ -626,11 +584,7 @@ textarea:focus{
     width: 100%;
 }
 
-
-
-
-
-.backstage{
+.backstage {
     background-color: #00000084;
     backdrop-filter: blur(10px);
     height: 100vh;
@@ -643,10 +597,9 @@ textarea:focus{
     justify-content: center;
     align-items: center;
     transition: all 0.3s;
-
 }
 
-.popup{
+.popup {
     position: fixed;
     width: 85%;
     background-color: rgb(255, 255, 255);
@@ -655,53 +608,44 @@ textarea:focus{
     text-align: left;
     z-index: 601;
     padding: 20px;
-    .simg{
+    .simg {
         width: 80%;
         max-height: 50vh;
         object-fit: contain;
         align-self: center;
-    };
+    }
 
-    div{
+    div {
         display: flex;
         justify-content: center;
         align-self: center;
         max-width: 100%;
-        align-items: center
-    
-    };
-
-
+        align-items: center;
+    }
 }
 
-
-.boxinfo{
+.boxinfo {
     background-color: #36e452;
-    font-family: 'NeueMontreal', sans-serif;
-    font-size: 0,3em;
+    font-family: "NeueMontreal", sans-serif;
+    font-size: 0, 3em;
     font-weight: 300;
     text-align: left;
     padding: 10px;
     color: #040406;
     margin-bottom: 20px;
-    *{
+    * {
         margin: 0;
         color: #040406;
     }
-
-
 }
 
-
-
-
-.outlined{
+.outlined {
     background-color: #ffffff;
     border: 1px solid #36e452;
     color: #36e452;
 }
 
-.bigPost{
+.bigPost {
     display: flex;
     flex-direction: column;
     background-color: #040406;
@@ -713,16 +657,16 @@ textarea:focus{
     text-align: left;
     box-sizing: border-box;
     gap: 10px;
-    *{
-        white-space: nowrap; 
-        overflow: hidden; 
+    * {
+        white-space: nowrap;
+        overflow: hidden;
         text-overflow: ellipsis;
         color: #36e452;
         margin: 0;
         padding: 0;
     }
 
-    h4{
+    h4 {
         font-size: 2em;
         font-family: P-Kiko, serif;
         margin: 0;
@@ -730,24 +674,19 @@ textarea:focus{
         width: calc(100% - 12px);
     }
 
-    
-
-    p{
+    p {
         margin: 0;
         padding: 0;
         text-decoration: none;
-        color:#FDFDFD;
+        color: #fdfdfd;
         font-family: NeueMontreal, sans-serif;
         font-size: 1.3em;
         font-weight: 300;
         width: calc(100% - 12px);
-
-
-
     }
 }
 
-.squarePost{
+.squarePost {
     font-family: P-Kiko, serif;
     display: flex;
     flex-direction: column;
@@ -764,40 +703,37 @@ textarea:focus{
     box-sizing: border-box;
     overflow: hidden;
 
-
-    p{
+    p {
         margin: 0;
         text-decoration: none;
-        color:#FDFDFD
-
+        color: #fdfdfd;
     }
 }
 
-
 /* Adaptación a pantallas */
 
-@media screen and (min-width: 600px){
-
-    #bCursor{
+@media screen and (min-width: 600px) {
+    #bCursor {
         display: block;
     }
 
-
-    .popup{
+    .popup {
         width: 60%;
     }
 
-    .bigaso{
+    .bigaso {
         width: 100%;
         cursor: pointer;
     }
-    .notion-content{
+    .notion-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
         width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
-    .squarePost{
+    .squarePost {
         font-family: P-Kiko, serif;
         display: flex;
         flex-direction: column;
@@ -813,37 +749,32 @@ textarea:focus{
         text-align: left;
         box-sizing: border-box;
         overflow: hidden;
-        
-    
-        p{
+
+        p {
             margin: 0;
             text-decoration: none;
-            color:#FDFDFD
-    
+            color: #fdfdfd;
         }
     }
 
-
-
-    .esd-feed{
+    .esd-feed {
         width: 100%;
         min-height: auto;
         font-size: 2em;
-        
-
     }
-
 }
 
-@media screen and (min-width: 800px){
-    .notion-content{
+@media screen and (min-width: 800px) {
+    .notion-content {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         width: 100%;
     }
 
-    .notion-page{
+    .notion-page {
         max-width: 800px;
+        padding: 0;
+        margin: 0;
     }
 }
 
@@ -855,23 +786,22 @@ textarea:focus{
 }
 
 @supports (-webkit-touch-callout: none) {
-    .iosOnly{
+    .iosOnly {
         display: block;
     }
-    #bCursor{
+    #bCursor {
         display: none;
     }
-    
 }
 
 @media screen and (max-width: 600px) {
-  .col {
-    flex-direction: column-reverse; /* invierte el orden */
-    gap: 20px;
-  }
-  .col > .col0,
-  .col > .col1 {
-    width: 100%;
-    float: none;
-  }
+    .col {
+        flex-direction: column-reverse; /* invierte el orden */
+        gap: 20px;
+    }
+    .col > .col0,
+    .col > .col1 {
+        width: 100%;
+        float: none;
+    }
 }
