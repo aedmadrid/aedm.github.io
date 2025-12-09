@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mercadillo | aedm</title>
+        <link rel="stylesheet" href="/aso.css" />
+        <link rel="stylesheet" href="/web.css" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <!-- Leaflet CSS -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        />
+        <style>
+            #map {
+                width: 100%;
+                height: 500px;
+                background: #f5f5f5;
+                border-radius: 0;
+            }
+            .chincheta-icon {
+                background: #3cadff;
+                border: none;
+                border-radius: 50%;
+                width: 28px;
+                height: 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+                font-size: 11px;
+                font-family: NeueMontreal, sans-serif;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            }
+            .leaflet-popup-content-wrapper {
+                border-radius: 0;
+                font-family: NeueMontreal, sans-serif;
+            }
+            .popup-mesa-titulo {
+                font-family: NeueMontreal, sans-serif;
+                font-weight: bold;
+                font-size: 12px;
+                margin-bottom: 4px;
+            }
+            .popup-mesa-nombre {
+                font-family: P-Kiko, sans-serif;
+                font-size: 32px;
+                line-height: 1.1;
+                margin-bottom: 8px;
+            }
+            .leaflet-popup-tip {
+                background: white;
+            }
+            .popup-btn {
+                display: inline-block;
+                margin-top: 8px;
+                padding: 6px 12px;
+                background: #36e452;
+                color: #000000;
+                text-decoration: none;
+                border-radius: 0;
+                font-size: 12px;
+                font-family: NeueMontreal, sans-serif;
+                cursor: pointer;
+            }
+            .popup-btn:hover {
+                background: #2bc943;
+            }
+            .ver-mapa-btn {
+                display: inline-block;
+                padding: 8px 16px;
+                background: #36e452;
+                color: #040406;
+                text-decoration: none;
+                border-radius: 0;
+                font-family: NeueMontreal, sans-serif;
+                cursor: pointer;
+            }
+            .ver-mapa-btn:hover {
+                background: #2bc943;
+            }
+            #hashtag-search {
+                width: 100%;
+                padding: 12px 16px;
+                font-size: 16px;
+                border: 2px solid #36e452;
+                border-radius: 0;
+                color: #040406;
+                font-family: NeueMontreal, sans-serif;
+                margin-top: 16px;
+                box-sizing: border-box;
+            }
+            #hashtag-search::placeholder {
+                color: #888;
+            }
+            #hashtag-search:focus {
+                outline: none;
+                border-color: #2bc943;
+            }
+            .search-container {
+                margin-bottom: 20px;
+            }
+            section.hidden {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="logo" onclick="location.href='/'"></div>
+            <nav class="desktop-nav">
+                <a href="/">Inicio</a>
+                <a href="/reclama/">Expone-Solicita</a>
+                <a href="https://aadm.space/actividades">Actividades</a>
+                <a target="_blank" href="https://app.aadm.space/"
+                    >APP
+                    <span class="material-symbols-outlined">
+                        arrow_outward
+                    </span></a
+                >
+                <a href="/contacto">Contacto</a>
+                <a href="https://aadm.space/mas"
+                    >Más <span class="material-symbols-outlined">add</span></a
+                >
+            </nav>
+            <span id="menumob" class="material-symbols-outlined">menu</span>
+        </header>
+
+        <div id="mobile-nav">
+            <nav class="mobile-nav-links">
+                <a href="/">Inicio</a>
+                <a href="/reclama/">Expone-Solicita</a>
+                <a href="https://aadm.space/actividades">Actividades</a>
+                <a target="_blank" href="https://app.aadm.space/"
+                    >APP
+                    <span class="material-symbols-outlined">
+                        arrow_outward
+                    </span></a
+                >
+                <a href="/contacto">Contacto</a>
+                <a href="https://aadm.space/mas"
+                    >Más <span class="material-symbols-outlined">add</span></a
+                >
+            </nav>
+        </div>
+
+        <main>
+            <div class="notion-page">
+                <h1 class="hTitle">Plano Mercadillo</h1>
+                <div id="map"></div>
+                                   <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#charms</span>
+                            <span>#blindbox</span>
+                            <span>#amigurumi</span>
+                            <span>#print</span>
+                            <span>#accesorios</span>
+                            <span>#pendientes</span>
+                            <span>#fanzine</span>
+                            <span>#pegatinas</span>
+                            <span>#grabados</span>
+                            <span>#chapas</span>
+                            <span>#fanart</span>
+                            <span>#prints</span>
+                            <span>#crochet</span>
+                            <span>#ilustración</span>
+                            <span>#llaveros</span>
+                            <span>#encuadernación</span>
+                            <span>#cuadernos</span>
+                        </div>
+                        <div class="hashtag-row hashtag-row-2">
+                            <span>#ilustraciones</span>
+                            <span>#láminas</span>
+                            <span>#diy</span>
+                            <span>#camisetaspersonalizadas</span>
+                            <span>#camisetasconlejía</span>
+                            <span>#imanes</span>
+                            <span>#marcapáginas</span>
+                            <span>#postales</span>
+                            <span>#fanzines</span>
+                            <span>#amigurumis</span>
+                            <span>#llaverossorpresa</span>
+                            <span>#joyería</span>
+                            <span>#artesanal</span>
+                            <span>#joyeríaenplata</span>
+                            <span>#accesorio</span>
+                        </div>
+                        <div class="hashtag-row hashtag-row-3">
+                            <span>#hoodie</span>
+                            <span>#serigrafía</span>
+                            <span>#albumilustrado</span>
+                            <span>#ropa</span>
+                            <span>#decoloración</span>
+                            <span>#handmade</span>
+                            <span>#joyas</span>
+                            <span>#collares</span>
+                            <span>#madera</span>
+                            <span>#color</span>
+                            <span>#artesanía</span>
+                            <span>#aluminio</span>
+                            <span>#joyasaluminio</span>
+                            <span>#ceramica</span>
+                            <span>#fotografia</span>
+                            <span>#peluches</span>
+                            <span>#bolsos</span>
+                            <span>#bisutería</span>
+                            <span>#prendas</span>
+                            <span>#upcycling</span>
+                            <span>#pantalones</span>
+                        </div>
+                    </div>
+                <div class="search-container">
+                    <input type="text" id="hashtag-search" placeholder="Buscar por hashtag..." autofocus>
+                </div>
+                <section>
+                    <h3 id="tb1">Mesa 1</h3>
+                    <h1 style="margin-bottom: 10px">Malena Valencia y Mar Frontan</h1>
+                    <p>Vendemos cajas sorpresa, charms, amigurumis, prints y accesorios.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/malenavgart/" target="_blank">@malenavgart</a>
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/martiistica/" target="_blank">@martiistica</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#charms</span>
+                            <span>#blindbox</span>
+                            <span>#amigurumi</span>
+                            <span>#print</span>
+                            <span>#accesorios</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa1')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb2">Mesa 2</h3>
+                    <h1 style="margin-bottom: 10px">Claudia Segovia</h1>
+                    <p>Venta de pendientes hechos con hojas naturales y resina.</p>
+                    <div class="socialrow"></div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#pendientes</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa2')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb3a">Mesa 3A</h3>
+                    <h1 style="margin-bottom: 10px">Julicalifei</h1>
+                    <p>Me gusta crear de forma artesanal y todo lo que vendo siempre está hecho a mano. Llevo tanto fanzines de diversos temas, pegatinas, chapas de fanarts, algunas ilustraciones y grabados originales, cuadros de flores secas... así como accesorios como llaveros de resina y de crochet. Aún no he podido adjuntarlo en el porfolio de venta, pero pretendo tener listos varios cuadernos hechos a mano con diversos papeles, etc.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/julicalifei/" target="_blank">@julicalifei</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#fanzine</span>
+                            <span>#pegatinas</span>
+                            <span>#grabados</span>
+                            <span>#chapas</span>
+                            <span>#fanart</span>
+                            <span>#prints</span>
+                            <span>#crochet</span>
+                            <span>#ilustración</span>
+                            <span>#llaveros</span>
+                            <span>#encuadernación</span>
+                            <span>#cuadernos</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa3a')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb3b">Mesa 3B</h3>
+                    <h1 style="margin-bottom: 10px">Sofia Guzman</h1>
+                    <p>Vendo ilustraciones, pegatinas, fanzines y hasta camisetas hechas con lejía a mano. Soy una ilustradora y diseñadora que proclama el uso artesanal de las cosas, nada realizado con inteligencia artesanal, reflejar que el arte es práctica, pasión y constancia. En estas pequeñas láminas se puede ver mi evolución como artista, y sobretodo me encanta ir a mercadillos porque acercas el arte a la gente, hablas con ella, reflexionas. Cara a cara, persona a persona. Creo que es una experiencia riquísima en todos los aspectos, y me hace crecer mucho como diseñadora, ilustradora y persona.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/ssophifia/" target="_blank">@ssophifia</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#ilustraciones</span>
+                            <span>#pegatinas</span>
+                            <span>#láminas</span>
+                            <span>#prints</span>
+                            <span>#fanzine</span>
+                            <span>#diy</span>
+                            <span>#camisetaspersonalizadas</span>
+                            <span>#camisetasconlejía</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa3b')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb4">Mesa 4</h3>
+                    <h1 style="margin-bottom: 10px">Lucía Gama</h1>
+                    <p>Mayormente todo lo que hago son diversos productos de ilustración y pequeños objetos de artesanía como imanes y pendientes de arcilla. También llevo algunas obras originales de grabado e ilustración.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/heliannae/" target="_blank">@heliannae</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#ilustración</span>
+                            <span>#prints</span>
+                            <span>#pegatinas</span>
+                            <span>#pendientes</span>
+                            <span>#imanes</span>
+                            <span>#marcapáginas</span>
+                            <span>#postales</span>
+                            <span>#fanzines</span>
+                            <span>#grabados</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa4')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb5a">Mesa 5A</h3>
+                    <h1 style="margin-bottom: 10px">Eva M.</h1>
+                    <p>Me gustaría vender amigurumis tematizados de las distintas especialidades y posiblemente acompañarlo de pegatinas y llaveros de la misma temática. También me gustaría plantear el crear accesorios y elementos decorativos tejido todo a crochet.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/e.m_desing_/" target="_blank">@e.m_desing_</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#amigurumis</span>
+                            <span>#crochet</span>
+                            <span>#llaveros</span>
+                            <span>#llaverossorpresa</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa5a')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb5b">Mesa 5B</h3>
+                    <h1 style="margin-bottom: 10px">UVARTTE</h1>
+                    <p>Pegatinas, ilustraciones y llaveros divertidos dibujados y diseñados por mi.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/uvartte/" target="_blank">@uvartte</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#pegatinas</span>
+                            <span>#ilustración</span>
+                            <span>#llaveros</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa5b')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb6">Mesa 6</h3>
+                    <h1 style="margin-bottom: 10px">Vega de Navascués</h1>
+                    <p>Venta de piezas de joyería de autor, realizadas de forma artesanal con materiales nobles como plata y piedras preciosas.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/vegadenavascues/" target="_blank">@vegadenavascues</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#joyería</span>
+                            <span>#artesanal</span>
+                            <span>#joyeríaenplata</span>
+                            <span>#accesorio</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa6')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb7">Mesa 7</h3>
+                    <h1 style="margin-bottom: 10px">Sara Ortiz y Graphic Cardo</h1>
+                    <p>Vendo camisetas/sudaderas serigrafiadas con uno de mis diseños, además de prints en papel con la misma ilustración. También tengo otros prints, pegatinas y algunas unidades de uno de mis fanzines.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/demonspirale/" target="_blank">@demonspirale</a>
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/graphic.cardo/" target="_blank">@graphic.cardo</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#pegatinas</span>
+                            <span>#fanzine</span>
+                            <span>#hoodie</span>
+                            <span>#serigrafía</span>
+                            <span>#prints</span>
+                            <span>#camisetaspersonalizadas</span>
+                            <span>#albumilustrado</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa7')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb8a">Mesa 8A</h3>
+                    <h1 style="margin-bottom: 10px">Martuki</h1>
+                    <p>Desde hace unos años me modifico la ropa a mi manera mediante la decoloración o añadiendo pintura apta para la ropa. Hago distintos dibujos, de distinto tamaño y con distinta temática en ropa negra u oscura. También me hago a mi misma pendientes y collares con madera, pintándola por encima con pintura acrílica haciendo diferentes diseños y dibujos.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/aropacamiseta/" target="_blank">@aropacamiseta</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#ropa</span>
+                            <span>#decoloración</span>
+                            <span>#handmade</span>
+                            <span>#joyas</span>
+                            <span>#pendientes</span>
+                            <span>#collares</span>
+                            <span>#madera</span>
+                            <span>#color</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa8a')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb8b">Mesa 8B</h3>
+                    <h1 style="margin-bottom: 10px">Blanca Benito</h1>
+                    <p>Joyería artesanal de aluminio. Pendientes, collares, anillos, marcapáginas.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/blancabenitods/" target="_blank">@blancabenitods</a>
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/missblanchejewels/" target="_blank">@missblanchejewels</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#joyas</span>
+                            <span>#artesanía</span>
+                            <span>#aluminio</span>
+                            <span>#joyasaluminio</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa8b')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb9a">Mesa 9A</h3>
+                    <h1 style="margin-bottom: 10px">Marina Sabio</h1>
+                    <p>Venta de unas 10-15 piezas de cerámica y porcelana hechas a mano.</p>
+                    <div class="socialrow"></div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#ceramica</span>
+                            <span>#handmade</span>
+                            <span>#artesanal</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa9a')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb9b">Mesa 9B</h3>
+                    <h1 style="margin-bottom: 10px">Patricia García</h1>
+                    <p>La propuesta serían por un lado pegatinas y láminas de ilustraciones (algunos fanarts y otros ilustraciones propias) y unos fanzines de fotografías analógicas de paisaje.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/rani3_draws/" target="_blank">@rani3_draws</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#pegatinas</span>
+                            <span>#ilustracion</span>
+                            <span>#fanzine</span>
+                            <span>#fotografia</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa9b')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb10">Mesa 10</h3>
+                    <h1 style="margin-bottom: 10px">inés</h1>
+                    <p>Los productos que hago están basados en el concepto de la personalización, por eso hago llaveros personalizables y peluches que se pueden llevar en el bolso, llaves, pantalón... También hago pegatinas para que la gente decore sus objetos personales a su gusto y que estos tengan algo de su esencia personal.</p>
+                    <div class="socialrow"></div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#pegatinas</span>
+                            <span>#peluches</span>
+                            <span>#llaveros</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa10')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb11">Mesa 11</h3>
+                    <h1 style="margin-bottom: 10px">Ctdart_</h1>
+                    <p>Realizo objetos hechos a mano, como camisetas, joyeros y las propias joyas con arcilla polimérica. También realizo ilustraciones y stickers.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/ctdart_/" target="_blank">@ctdart_</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#camisetaspersonalizadas</span>
+                            <span>#ilustración</span>
+                            <span>#joyas</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa11')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb12">Mesa 12</h3>
+                    <h1 style="margin-bottom: 10px">Celia</h1>
+                    <p>Mi propuesta de venta consta de pegatinas propias dibujadas digitalmente, bolsos, fundas de libro, cuadernos encuadernados a mano, llaveros, collares y pendientes.</p>
+                    <div class="socialrow"></div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#pegatinas</span>
+                            <span>#bolsos</span>
+                            <span>#bisutería</span>
+                            <span>#cuadernos</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa12')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb13">Mesa 13</h3>
+                    <h1 style="margin-bottom: 10px">dissaraemv</h1>
+                    <p>Prendas de arriba como tops o camisas, de abajo; faldas, pantalones y algo de joyería como collares y brazaletes.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/dissaraemv_/" target="_blank">@dissaraemv_</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#ropa</span>
+                            <span>#prendas</span>
+                            <span>#joyeria</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa14')">Ver en el mapa</a>
+                </section>
+                <section>
+                    <h3 id="tb14">Mesa 14</h3>
+                    <h1 style="margin-bottom: 10px">Lopo</h1>
+                    <p>Venderé accesorios, piezas y charms hechos por upcycling. Todo con material reciclado y reaprovechado.</p>
+                    <div class="socialrow">
+                        <a style="text-decoration: none; color: #3cadff" href="https://www.instagram.com/L0p0/" target="_blank">@L0p0</a>
+                    </div>
+                    <div class="hashtag-scroll">
+                        <div class="hashtag-row hashtag-row-1">
+                            <span>#charms</span>
+                            <span>#upcycling</span>
+                            <span>#accesorios</span>
+                            <span>#pantalones</span>
+                        </div>
+                    </div>
+                    <a class="ver-mapa-btn" onclick="irAMesa('mesa14')">Ver en el mapa</a>
+                </section>
+
+            </div>
+        </main>
+        <footer>
+            <div id="bglogo">
+                <img src="/aedm.png" width="270px" alt="aedm" />
+                <p>asociación de estudiantes de diseño de madrid</p>
+            </div>
+
+            <div id="btmnav">
+                <a href="https://app.aadm.space/" target="_blank">APP</a>
+                <a href="https://www.instagram.com/aso.esd" target="_blank"
+                    >Instagram</a
+                >
+                <a
+                    href="https://whatsapp.com/channel/0029VayuAlmISTkHVLfCc021"
+                    target="_blank"
+                    >WhatsApp</a
+                >
+                <a href="#" id="open_preferences_center">Cookies</a>
+            </div>
+        </footer>
+        <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+        <script
+            type="text/javascript"
+            src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js"
+            charset="UTF-8"
+        ></script>
+        <script type="text/javascript" charset="UTF-8">
+            document.addEventListener("DOMContentLoaded", function () {
+                cookieconsent.run({
+                    notice_banner_type: "simple",
+                    consent_type: "express",
+                    palette: "dark",
+                    language: "es",
+                    page_load_consent_levels: ["strictly-necessary"],
+                    notice_banner_reject_button_hide: false,
+                    preferences_center_close_button_hide: false,
+                    page_refresh_confirmation_buttons: false,
+                    website_name: "aadm",
+                });
+            });
+        </script>
+
+        <!-- Unnamed script -->
+        <!-- Google tag (gtag.js) -->
+        <script
+            type="text/plain"
+            data-cookie-consent="strictly-necessary"
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4BDXW4TRWE"
+        ></script>
+        <script type="text/plain" data-cookie-consent="strictly-necessary">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4BDXW4TRWE');
+        </script>
+        <!-- end of Unnamed script-->
+
+        <noscript
+            >Free cookie consent management tool by
+            <a href="https://www.termsfeed.com/">TermsFeed</a></noscript
+        >
+        <!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+
+        <!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
+
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+            integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+            data-cf-beacon='{"version":"2024.11.0","token":"9e2d1749e9274afb9f1344756c07894d","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+            crossorigin="anonymous"
+        ></script>
+    </body>
+    <script src="https://aadm.space/formula.js"></script>
+    <script src="https://aadm.space/mobile.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map;
+        var marcadores = {};
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Dimensiones del SVG
+            var imgWidth = 2670;
+            var imgHeight = 1641;
+
+            // Crear mapa con sistema de coordenadas simple (imagen)
+            map = L.map("map", {
+                crs: L.CRS.Simple,
+                minZoom: -2,
+                maxZoom: 2,
+            });
+
+            // Bounds de la imagen
+            var bounds = [
+                [0, 0],
+                [imgHeight, imgWidth],
+            ];
+
+            // Añadir la imagen SVG como overlay
+            L.imageOverlay("../mesas/mapa.svg", bounds).addTo(map);
+
+            // Ajustar vista a la imagen
+            map.fitBounds(bounds);
+
+            // ====== CHINCHETAS ======
+            // id: identificador único para enlazar con la descripción
+            // seccion: id del elemento HTML de la descripción
+            var chinchetas = [
+                { id: "mesa1", pos: [1350, 600], titulo: "Mesa 1", descripcion: "Malena Valencia y Mar Frontan", seccion: "tb1", label: "1" },
+                { id: "mesa2", pos: [980, 85], titulo: "Mesa 2", descripcion: "Claudia Segovia", seccion: "tb2", label: "2" },
+                { id: "mesa3a", pos: [600, 85], titulo: "Mesa 3A", descripcion: "Julicalifei", seccion: "tb3a", label: "3A" },
+                { id: "mesa3b", pos: [460, 85], titulo: "Mesa 3B", descripcion: "Sofia Guzman", seccion: "tb3b", label: "3B" },
+                { id: "mesa4", pos: [380, 260], titulo: "Mesa 4", descripcion: "Lucía Gama", seccion: "tb4", label: "4" },
+                { id: "mesa5a", pos: [800, 450], titulo: "Mesa 5A", descripcion: "Eva M.", seccion: "tb5a", label: "5A" },
+                { id: "mesa5b", pos: [640, 450], titulo: "Mesa 5B", descripcion: "UVARTTE", seccion: "tb5b", label: "5B" },
+                { id: "mesa6", pos: [950, 540], titulo: "Mesa 6", descripcion: "Vega de Navascués", seccion: "tb6", label: "6" },
+                { id: "mesa7", pos: [1020, 750], titulo: "Mesa 7", descripcion: "Sara Ortiz y Graphic Cardo", seccion: "tb7", label: "7" },
+                { id: "mesa8a", pos: [1020, 1050], titulo: "Mesa 8A", descripcion: "Martuki", seccion: "tb8a", label: "8A" },
+                { id: "mesa8b", pos: [1020, 1160], titulo: "Mesa 8B", descripcion: "Blanca Benito", seccion: "tb8b", label: "8B" },
+                { id: "mesa9a", pos: [1260, 1480], titulo: "Mesa 9A", descripcion: "Marina Sabio", seccion: "tb9a", label: "9A" },
+                { id: "mesa9b", pos: [1090, 1480], titulo: "Mesa 9B", descripcion: "Patricia García", seccion: "tb9b", label: "9B" },
+                { id: "mesa10", pos: [950, 1480], titulo: "Mesa 10", descripcion: "inés", seccion: "tb10", label: "10" },
+                { id: "mesa11", pos: [720, 1480], titulo: "Mesa 11", descripcion: "Ctdart_", seccion: "tb11", label: "11" },
+                { id: "mesa12", pos: [570, 1630], titulo: "Mesa 12", descripcion: "Celia", seccion: "tb12", label: "12" },
+                { id: "mesa13", pos: [720, 1910], titulo: "Mesa 13", descripcion: "dissaraemv", seccion: "tb13", label: "13" },
+                { id: "mesa14", pos: [950, 1910], titulo: "Mesa 14", descripcion: "Lopo", seccion: "tb14", label: "14" },
+            ];
+
+            // Crear marcadores
+            chinchetas.forEach(function (ch) {
+                var popupContent =
+                    '<div class="popup-mesa-titulo">' + ch.titulo + '</div>' +
+                    '<div class="popup-mesa-nombre">' + ch.descripcion + '</div>';
+                if (ch.seccion) {
+                    popupContent +=
+                        '<a class="popup-btn" href="#' +
+                        ch.seccion +
+                        '">Ver descripción</a>';
+                }
+
+                // Crear icono personalizado con número de mesa
+                var customIcon = L.divIcon({
+                    className: 'chincheta-icon',
+                    html: ch.label,
+                    iconSize: [28, 28],
+                    iconAnchor: [14, 14]
+                });
+
+                var marker = L.marker(ch.pos, { icon: customIcon })
+                    .addTo(map)
+                    .bindPopup(popupContent);
+
+                marcadores[ch.id] = { marker: marker, pos: ch.pos };
+            });
+
+            // Duplicar hashtags para scroll infinito
+            const rows = document.querySelectorAll(".hashtag-row");
+            rows.forEach((row) => {
+                const content = row.innerHTML;
+                row.innerHTML = content + content;
+            });
+
+            // Buscador de hashtags
+            const searchInput = document.getElementById('hashtag-search');
+            const sections = document.querySelectorAll('main section');
+
+            // Hacer que los hashtags sean clicables
+            document.querySelectorAll('.hashtag-row span').forEach(function(tag) {
+                tag.style.cursor = 'pointer';
+                tag.addEventListener('click', function() {
+                    const hashtag = this.textContent.replace('#', '');
+                    searchInput.value = hashtag;
+                    searchInput.dispatchEvent(new Event('input'));
+                    searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            });
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim().replace('#', '');
+                let visibleCount = 0;
+
+                sections.forEach(function(section) {
+                    const hashtags = section.querySelectorAll('.hashtag-row span');
+                    let hasMatch = false;
+
+                    if (searchTerm === '') {
+                        hasMatch = true;
+                    } else {
+                        hashtags.forEach(function(tag) {
+                            const tagText = tag.textContent.toLowerCase().replace('#', '');
+                            if (tagText.startsWith(searchTerm)) {
+                                hasMatch = true;
+                            }
+                        });
+                    }
+
+                    // Obtener el id de la mesa desde el h3
+                    const h3 = section.querySelector('h3');
+                    const mesaId = h3 ? h3.id.replace('tb', 'mesa') : null;
+
+                    if (hasMatch) {
+                        section.classList.remove('hidden');
+                        visibleCount++;
+                        // Mostrar marcador en el mapa
+                        if (mesaId && marcadores[mesaId]) {
+                            marcadores[mesaId].marker.addTo(map);
+                        }
+                    } else {
+                        section.classList.add('hidden');
+                        // Ocultar marcador del mapa
+                        if (mesaId && marcadores[mesaId]) {
+                            map.removeLayer(marcadores[mesaId].marker);
+                        }
+                    }
+                });
+            });
+        });
+
+        // Función para ir a una mesa en el mapa
+        function irAMesa(mesaId) {
+            if (marcadores[mesaId]) {
+                var m = marcadores[mesaId];
+                map.setView(m.pos, 1);
+                m.marker.openPopup();
+                document
+                    .getElementById("map")
+                    .scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    </script>
+</html>

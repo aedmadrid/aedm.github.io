@@ -27,7 +27,6 @@
     font-family: P-Kiko;
     src: url("/fonts/PKiko-Light.otf") format("opentype");
     font-style: normal;
-    font-weight: lighter;
 }
 
 @font-face {
@@ -61,63 +60,60 @@
     font-family: DMMono;
     src: url("/fonts/DMMono-Medium.ttf") format("truetype");
     font-style: normal;
-    font-weight: medium;
 }
 
 @font-face {
     font-family: DMMono;
     src: url("/fonts/DMMono-MediumItalic.ttf") format("truetype");
     font-style: italic;
-    font-weight: medium;
 }
 
 @font-face {
     font-family: DMMono;
     src: url("/fonts/DMMono-Light.ttf") format("truetype");
     font-style: normal;
-    font-weight: lighter;
 }
 
 @font-face {
     font-family: NeueMontreal;
     src: url("/fonts/NeueMontreal-Regular.ttf") format("truetype");
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 @font-face {
     font-family: NeueMontreal;
     src: url("/fonts/NeueMontreal-Italic.ttf") format("truetype");
     font-style: italic;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 @font-face {
     font-family: NeueMontreal;
     src: url("/fonts/NeueMontreal-Bold.ttf") format("truetype");
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 @font-face {
     font-family: NeueMontreal;
     src: url("/fonts/NeueMontreal-BoldItalic.ttf") format("truetype");
     font-style: italic;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 @font-face {
     font-family: NeueMontreal;
     src: url("/fonts/NeueMontreal-Light.ttf") format("truetype");
     font-style: normal;
-    font-weight: lighter;
+    font-weight: 300;
 }
 
 @font-face {
     font-family: NeueMontreal;
     src: url("/fonts/NeueMontreal-LightItalic.ttf") format("truetype");
     font-style: italic;
-    font-weight: lighter;
+    font-weight: 300;
 }
 
 /** General **/
@@ -286,11 +282,10 @@ h1 {
 
 h2 {
     font-family: DMMono, monospace;
-    font-weight: 100;
     font-size: 1.6em;
     color: #040406d3;
     margin: 20 0 10 0px;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 h3 {
@@ -465,6 +460,19 @@ textarea:focus {
 
 #border {
     padding: 60px 20px 10px 20px;
+}
+
+p {
+    font-weight: 400;
+}
+
+b {
+    font-weight: 700;
+}
+
+i {
+    font-weight: 400;
+    font-style: italic;
 }
 
 .notion-content {
